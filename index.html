@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Will you be my Valentine?</title>
+</head>
+<body>
+    <div class="container">
+        <div class="cat">
+            😻<span class="heart">💖</span>
+        </div>
+        <h1>Katám lennél a valentinem?</h1>
+        <div class="buttons">
+            <button class="yes-btn" onclick="yesClick()">Yes</button>
+            <button class="no-btn" onclick="noClick()">No</button>
+        </div>
+        <p class="message">"No" seems a bit shy 💔</p>
+    </div>
+
+    <script>
+        function yesClick2() {
+            alert('Yay! 💕 Boldog valaentinnapot! 🌹');
+        }
+
+        function yesClick() {
+            const duration = 5000;
+            const endTime = Date.now() + duration;
+            
+            function createHeart() {
+                if (Date.now() > endTime) return;
+                
+                const heart = document.createElement('div');
+                heart.textContent = '💖';
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = '-30px';
+                heart.style.fontSize = '30px';
+                heart.style.pointerEvents = 'none';
+                heart.style.animation = 'fall ' + (2 + Math.random() * 2) + 's linear forwards';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 5000);
+                setTimeout(createHeart, 5);
+            }
+            
+            if (!document.querySelector('style[data-heart-rain]')) {
+                const style = document.createElement('style');
+                style.setAttribute('data-heart-rain', 'true');
+                style.textContent = `
+                    @keyframes fall {
+                        to {
+                            transform: translateY(100vh);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            createHeart();
+            setTimeout(() => {
+                alert('Yay! 💕 Boldog valaentinnapot! 🌹');
+            }, duration);
+        }
+
+        function noClick() {
+            const noBtn = document.querySelector('.no-btn');
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = Math.random() * window.innerWidth + 'px';
+            noBtn.style.top = Math.random() * window.innerHeight + 'px';
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffc0cb, #ffb6c1);
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+}
+
+.cat {
+    font-size: 80px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.heart {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 30px;
+    color: #ff1493;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.yes-btn {
+    background: #ff1493;
+    color: white;
+    padding: 12px 40px;
+}
+
+.yes-btn:hover {
+    background: #ff0080;
+    transform: scale(1.05);
+}
+
+.no-btn {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.no-btn:hover {
+    position: relative;
+    left: 20px;
+}
+
+.message {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
